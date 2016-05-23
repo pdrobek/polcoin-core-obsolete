@@ -26,9 +26,9 @@ Current main version: 1.5.1.0 (code name: Genesis pass)
 
 ## Community
 
-You can find more information about Polcoin on [polcoin.pl](http://polcoin.pl/).
+You can find more information about Polcoin on [polcoin.pl](https://polcoin.pl/).
 
-If you have any trouble write on [Polcoine official forum](http://forum.polcoin.pl).
+If you have any trouble write on [Polcoine official forum](https://forum.polcoin.pl).
 
 We are also on [Bitcointalk.org](https://bitcointalk.org/index.php?topic=945549.0)
 
