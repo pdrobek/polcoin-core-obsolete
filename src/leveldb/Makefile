@@ -13,7 +13,7 @@ OPT ?= -O2 -DNDEBUG
 # (C) Profiling mode: opt, but w/debugging symbols
 # OPT ?= -O2 -g2 -DNDEBUG
 #-----------------------------------------------
-
+#polcoin-dev/polcoin-core
 # detect what platform we're building on
 $(shell CC="$(CC)" CXX="$(CXX)" TARGET_OS="$(TARGET_OS)" \
     ./build_detect_platform build_config.mk ./)
