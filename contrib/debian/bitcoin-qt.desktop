@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Polcoin
+Comment=Polcoin P2P Cryptocurrency
+Comment[fr]=Polcoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Polcoin, eşten eşe kriptografik sanal para birimi
+Exec=polcoin-qt %u
+Terminal=false
+Type=Application
+Icon=polcoin128
+MimeType=x-scheme-handler/polcoin;
+Categories=Office;Finance;

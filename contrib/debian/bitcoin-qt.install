@@ -1,0 +1,6 @@
+usr/local/bin/polcoin-qt usr/bin
+share/pixmaps/polcoin32.xpm usr/share/pixmaps
+share/pixmaps/polcoin16.xpm usr/share/pixmaps
+share/pixmaps/polcoin128.png usr/share/pixmaps
+debian/polcoin-qt.desktop usr/share/applications
+debian/polcoin-qt.protocol usr/share/kde4/services/

@@ -1,0 +1,86 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/polcoin/.polcoin" ]; then
+	POLCOIND_DEFAULT_DATADIR="/var/lib/polcoin/.polcoin"
+else
+	POLCOIND_DEFAULT_DATADIR="/var/lib/polcoind"
+fi
+
+POLCOIND_CONFIGFILE=${POLCOIND_CONFIGFILE:-/etc/polcoin/polcoin.conf}
+POLCOIND_PIDDIR=${POLCOIND_PIDDIR:-/var/run/polcoind}
+POLCOIND_PIDFILE=${POLCOIND_PIDFILE:-${POLCOIND_PIDDIR}/polcoind.pid}
+POLCOIND_DATADIR=${POLCOIND_DATADIR:-${POLCOIND_DEFAULT_DATADIR}}
+POLCOIND_USER=${POLCOIND_USER:-polcoin}
+POLCOIND_GROUP=${POLCOIND_GROUP:-polcoin}
+POLCOIND_BIN=${POLCOIND_BIN:-/usr/bin/polcoind}
+
+name="Polcoin Core Daemon"
+description="Polcoin crypto-currency p2p network daemon"
+
+command="/usr/bin/polcoind"
+command_args="-pid=\"${POLCOIND_PIDFILE}\" \
+		-conf=\"${POLCOIND_CONFIGFILE}\" \
+		-datadir=\"${POLCOIND_DATADIR}\" \
+		-daemon \
+		${POLCOIND_OPTS}"
+
+required_files="${POLCOIND_CONFIGFILE}"
+start_stop_daemon_args="-u ${POLCOIND_USER} \
+			-N ${POLCOIND_NICE:-0} -w 2000"
+pidfile="${POLCOIND_PIDFILE}"
+retry=60
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${POLCOIND_USER}:${POLCOIND_GROUP}" \
+	"${POLCOIND_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${POLCOIND_USER}:${POLCOIND_GROUP}" \
+	"${POLCOIND_PIDDIR}"
+
+	checkpath -f \
+	-o ${POLCOIND_USER}:${POLCOIND_GROUP} \
+	-m 0660 \
+	${POLCOIND_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${POLCOIND_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run polcoind."
+		eerror "The setting must appear in ${POLCOIND_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following"
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is also recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Polcoin Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

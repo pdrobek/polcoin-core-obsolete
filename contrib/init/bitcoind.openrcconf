@@ -1,0 +1,27 @@
+# /etc/conf.d/polcoind: config file for /etc/init.d/polcoind
+
+# Config file location
+#POLCOIND_CONFIGFILE="/etc/polcoin/polcoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $POLCOIND_USER)
+#POLCOIND_PIDDIR="/var/run/polcoind"
+
+# What filename to give the pidfile
+#POLCOIND_PIDFILE="${POLCOIND_PIDDIR}/polcoind.pid"
+
+# Where to write polcoind data (be mindful that the blockchain is large)
+#POLCOIND_DATADIR="/var/lib/polcoind"
+
+# User and group to own polcoind process
+#POLCOIND_USER="polcoin"
+#POLCOIND_GROUP="polcoin"
+
+# Path to polcoind executable
+#POLCOIND_BIN="/usr/bin/polcoind"
+
+# Nice value to run polcoind under
+#POLCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+POLCOIND_OPTS="-disablewallet"
+

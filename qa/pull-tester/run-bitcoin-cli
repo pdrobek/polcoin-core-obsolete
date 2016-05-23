@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# This is a thin wrapper around polcoin-cli that strips the Windows-style EOLs
+# from the output if present. It is necessary when using polcoin-cli.exe on
+# Linux since shells will interpret the line-endings as part of the result.
+
+CURDIR=$(cd $(dirname "$0"); pwd)
+# Get BUILDDIR and REAL_POLCOIND
+
+# Grab the value of $REAL_POLCOINCLI which may be polcoin-cli.exe.
+. "${CURDIR}/tests-config.sh"
+
+"${REAL_POLCOINCLI}" "$@" | sed 's/\r//'
