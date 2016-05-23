@@ -7,7 +7,7 @@
 #define POLCOIN_CLIENTVERSION_H
 
 #if defined(HAVE_CONFIG_H)
-//#include "config/polcoin-config.h"
+#include "config/polcoin-config.h"
 #else
 
 /**
