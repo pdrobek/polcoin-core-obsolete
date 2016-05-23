@@ -6,9 +6,9 @@
 #ifndef POLCOIN_CLIENTVERSION_H
 #define POLCOIN_CLIENTVERSION_H
 
-//#if defined(HAVE_CONFIG_H)
+#if defined(HAVE_CONFIG_H)
 //#include "config/polcoin-config.h"
-//#else
+#else
 
 /**
  * client versioning and copyright year
