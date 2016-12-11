@@ -2552,24 +2552,24 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
         return state.DoS(100, error("%s : forked chain older than last checkpoint (height %d)", __func__, nHeight));
 
     // Reject block.nVersion=1 blocks when 95% (75% on testnet) of the network has upgraded:
-    if (block.nVersion < 2 && 
-        CBlockIndex::IsSuperMajority(2, pindexPrev, Params().RejectBlockOutdatedMajority()))
-    {
-        return state.Invalid(error("%s : rejected nVersion=1 block", __func__),
-                             REJECT_OBSOLETE, "bad-version");
-    }
+    //if (block.nVersion < 2 && 
+    //    CBlockIndex::IsSuperMajority(2, pindexPrev, Params().RejectBlockOutdatedMajority()))
+    //{
+    //    return state.Invalid(error("%s : rejected nVersion=1 block", __func__),
+    //                         REJECT_OBSOLETE, "bad-version");
+    //}
 
     // Reject block.nVersion=2 blocks when 95% (75% on testnet) of the network has upgraded:
-    if (block.nVersion < 3 && CBlockIndex::IsSuperMajority(3, pindexPrev, Params().RejectBlockOutdatedMajority()))
-    {
-        return state.Invalid(error("%s : rejected nVersion=2 block", __func__),
-                             REJECT_OBSOLETE, "bad-version");
-    }
+    //if (block.nVersion < 3 && CBlockIndex::IsSuperMajority(3, pindexPrev, Params().RejectBlockOutdatedMajority()))
+    //{
+    //    return state.Invalid(error("%s : rejected nVersion=2 block", __func__),
+    //                         REJECT_OBSOLETE, "bad-version");
+    //}
 
     // Reject block.nVersion=3 blocks when 95% (75% on testnet) of the network has upgraded:
-    if (block.nVersion < 4 && CBlockIndex::IsSuperMajority(4, pindexPrev, Params().RejectBlockOutdatedMajority()))
-        return state.Invalid(error("%s : rejected nVersion=3 block", __func__),
-                             REJECT_OBSOLETE, "bad-version");
+    //if (block.nVersion < 4 && CBlockIndex::IsSuperMajority(4, pindexPrev, Params().RejectBlockOutdatedMajority()))
+    //    return state.Invalid(error("%s : rejected nVersion=3 block", __func__),
+    //                         REJECT_OBSOLETE, "bad-version");
 
     return true;
 }
