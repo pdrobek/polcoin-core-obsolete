@@ -13,13 +13,12 @@
  * for both polcoind and polcoin-core, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Genesis pass");
+const std::string CLIENT_NAME("Troll Hammer ");
 
 /**
  * Client version number
  */
-#define CLIENT_VERSION_SUFFIX "-stable by pdrobek"
-
+#define CLIENT_VERSION_SUFFIX " by pdrobek, rav3n_pl"
 
 /**
  * The following part of the code determines the CLIENT_BUILD variable.

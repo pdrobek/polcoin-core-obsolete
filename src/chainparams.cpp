@@ -151,7 +151,13 @@ public:
         assert(genesis.hashMerkleRoot == uint256("0xea53d083b41896c5e5f6ca39223bd3a70a900868397a604c9d2f607c790c535d"));
 
         
+
+	vSeeds.push_back(CDNSSeedData("seed.polcoin.pl", "dnsseed.polcoin.pl"));
 	vSeeds.push_back(CDNSSeedData("polcoin.pl", "polcoin.pl"));
+	vSeeds.push_back(CDNSSeedData("polcoin.ddns.net", "polcoin.ddns.net"));
+	vSeeds.push_back(CDNSSeedData("polcoin.no-ip.org", "polcoin.no-ip.org"));
+	vSeeds.push_back(CDNSSeedData("polcoin.one.pl", "polcoin.one.pl"));
+	vSeeds.push_back(CDNSSeedData("pdrobek.no-ip.org", "pdrobek.no-ip.org"));
         /*
 	vSeeds.push_back(CDNSSeedData("bluematt.me", "dnsseed.bluematt.me"));
         vSeeds.push_back(CDNSSeedData("dashjr.org", "dnsseed.polcoin.dashjr.org"));
