@@ -179,7 +179,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, int nHeight)
 
     if (hash.ToString() == "5b0d84e63fa3dae7bb2ad21386ec5f6d146b70414bd825857636f91f4257d135" && nHeight == 0)
 	{
-	LogPrintf("Gensis pass\n");
+	LogPrintf("Genesis pass\n");
 	return true;
 	}
     if (Params().SkipProofOfWorkCheck())
