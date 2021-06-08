@@ -22,7 +22,7 @@ RPC port: 9337
 
 Retarget every 360 blocks (6 hours)
 
-Current main version: 1.5.1.0 (code name: Genesis pass)
+Current main version: 1.6.2.1 (code name: Genesis pass)
 
 ## Community
 
