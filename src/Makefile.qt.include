@@ -1,79 +1,98 @@
+# Copyright (c) 2013-2016 The Bitcoin Core developers
+# Distributed under the MIT software license, see the accompanying
+# file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 bin_PROGRAMS += qt/polcoin-qt
 EXTRA_LIBRARIES += qt/libpolcoinqt.a
 
-# polcoin qt core #
+# bitcoin qt core #
 QT_TS = \
-  qt/locale/polcoin_ach.ts \
-  qt/locale/polcoin_af_ZA.ts \
-  qt/locale/polcoin_ar.ts \
-  qt/locale/polcoin_be_BY.ts \
-  qt/locale/polcoin_bg.ts \
-  qt/locale/polcoin_bs.ts \
-  qt/locale/polcoin_ca_ES.ts \
-  qt/locale/polcoin_ca.ts \
-  qt/locale/polcoin_ca@valencia.ts \
-  qt/locale/polcoin_cmn.ts \
-  qt/locale/polcoin_cs.ts \
-  qt/locale/polcoin_cy.ts \
-  qt/locale/polcoin_da.ts \
-  qt/locale/polcoin_de.ts \
-  qt/locale/polcoin_el_GR.ts \
-  qt/locale/polcoin_en.ts \
-  qt/locale/polcoin_eo.ts \
-  qt/locale/polcoin_es_CL.ts \
-  qt/locale/polcoin_es_DO.ts \
-  qt/locale/polcoin_es_MX.ts \
-  qt/locale/polcoin_es.ts \
-  qt/locale/polcoin_es_UY.ts \
-  qt/locale/polcoin_et.ts \
-  qt/locale/polcoin_eu_ES.ts \
-  qt/locale/polcoin_fa_IR.ts \
-  qt/locale/polcoin_fa.ts \
-  qt/locale/polcoin_fi.ts \
-  qt/locale/polcoin_fr_CA.ts \
-  qt/locale/polcoin_fr.ts \
-  qt/locale/polcoin_gl.ts \
-  qt/locale/polcoin_gu_IN.ts \
-  qt/locale/polcoin_he.ts \
-  qt/locale/polcoin_hi_IN.ts \
-  qt/locale/polcoin_hr.ts \
-  qt/locale/polcoin_hu.ts \
-  qt/locale/polcoin_id_ID.ts \
-  qt/locale/polcoin_it.ts \
-  qt/locale/polcoin_ja.ts \
-  qt/locale/polcoin_ka.ts \
-  qt/locale/polcoin_kk_KZ.ts \
-  qt/locale/polcoin_ko_KR.ts \
-  qt/locale/polcoin_ky.ts \
-  qt/locale/polcoin_la.ts \
-  qt/locale/polcoin_lt.ts \
-  qt/locale/polcoin_lv_LV.ts \
-  qt/locale/polcoin_mn.ts \
-  qt/locale/polcoin_ms_MY.ts \
-  qt/locale/polcoin_nb.ts \
-  qt/locale/polcoin_nl.ts \
-  qt/locale/polcoin_pam.ts \
-  qt/locale/polcoin_pl.ts \
-  qt/locale/polcoin_pt_BR.ts \
-  qt/locale/polcoin_pt_PT.ts \
-  qt/locale/polcoin_ro_RO.ts \
-  qt/locale/polcoin_ru.ts \
-  qt/locale/polcoin_sah.ts \
-  qt/locale/polcoin_sk.ts \
-  qt/locale/polcoin_sl_SI.ts \
-  qt/locale/polcoin_sq.ts \
-  qt/locale/polcoin_sr.ts \
-  qt/locale/polcoin_sv.ts \
-  qt/locale/polcoin_th_TH.ts \
-  qt/locale/polcoin_tr.ts \
-  qt/locale/polcoin_uk.ts \
-  qt/locale/polcoin_ur_PK.ts \
-  qt/locale/polcoin_uz@Cyrl.ts \
-  qt/locale/polcoin_vi.ts \
-  qt/locale/polcoin_vi_VN.ts \
-  qt/locale/polcoin_zh_CN.ts \
-  qt/locale/polcoin_zh_HK.ts \
-  qt/locale/polcoin_zh_TW.ts
+  qt/locale/bitcoin_af.ts \
+  qt/locale/bitcoin_af_ZA.ts \
+  qt/locale/bitcoin_ar.ts \
+  qt/locale/bitcoin_be_BY.ts \
+  qt/locale/bitcoin_bg_BG.ts \
+  qt/locale/bitcoin_bg.ts \
+  qt/locale/bitcoin_ca_ES.ts \
+  qt/locale/bitcoin_ca.ts \
+  qt/locale/bitcoin_ca@valencia.ts \
+  qt/locale/bitcoin_cs.ts \
+  qt/locale/bitcoin_cy.ts \
+  qt/locale/bitcoin_da.ts \
+  qt/locale/bitcoin_de.ts \
+  qt/locale/bitcoin_el_GR.ts \
+  qt/locale/bitcoin_el.ts \
+  qt/locale/bitcoin_en_GB.ts \
+  qt/locale/bitcoin_en.ts \
+  qt/locale/bitcoin_eo.ts \
+  qt/locale/bitcoin_es_AR.ts \
+  qt/locale/bitcoin_es_CL.ts \
+  qt/locale/bitcoin_es_CO.ts \
+  qt/locale/bitcoin_es_DO.ts \
+  qt/locale/bitcoin_es_ES.ts \
+  qt/locale/bitcoin_es_MX.ts \
+  qt/locale/bitcoin_es.ts \
+  qt/locale/bitcoin_es_UY.ts \
+  qt/locale/bitcoin_es_VE.ts \
+  qt/locale/bitcoin_et_EE.ts \
+  qt/locale/bitcoin_et.ts \
+  qt/locale/bitcoin_eu_ES.ts \
+  qt/locale/bitcoin_fa_IR.ts \
+  qt/locale/bitcoin_fa.ts \
+  qt/locale/bitcoin_fi.ts \
+  qt/locale/bitcoin_fr_CA.ts \
+  qt/locale/bitcoin_fr_FR.ts \
+  qt/locale/bitcoin_fr.ts \
+  qt/locale/bitcoin_gl.ts \
+  qt/locale/bitcoin_he.ts \
+  qt/locale/bitcoin_hi_IN.ts \
+  qt/locale/bitcoin_hr.ts \
+  qt/locale/bitcoin_hu.ts \
+  qt/locale/bitcoin_id_ID.ts \
+  qt/locale/bitcoin_it_IT.ts \
+  qt/locale/bitcoin_it.ts \
+  qt/locale/bitcoin_ja.ts \
+  qt/locale/bitcoin_ka.ts \
+  qt/locale/bitcoin_kk_KZ.ts \
+  qt/locale/bitcoin_ko_KR.ts \
+  qt/locale/bitcoin_ku_IQ.ts \
+  qt/locale/bitcoin_ky.ts \
+  qt/locale/bitcoin_la.ts \
+  qt/locale/bitcoin_lt.ts \
+  qt/locale/bitcoin_lv_LV.ts \
+  qt/locale/bitcoin_mk_MK.ts \
+  qt/locale/bitcoin_mn.ts \
+  qt/locale/bitcoin_ms_MY.ts \
+  qt/locale/bitcoin_nb.ts \
+  qt/locale/bitcoin_ne.ts \
+  qt/locale/bitcoin_nl.ts \
+  qt/locale/bitcoin_pam.ts \
+  qt/locale/bitcoin_pl.ts \
+  qt/locale/bitcoin_pt_BR.ts \
+  qt/locale/bitcoin_pt_PT.ts \
+  qt/locale/bitcoin_ro_RO.ts \
+  qt/locale/bitcoin_ro.ts \
+  qt/locale/bitcoin_ru_RU.ts \
+  qt/locale/bitcoin_ru.ts \
+  qt/locale/bitcoin_sk.ts \
+  qt/locale/bitcoin_sl_SI.ts \
+  qt/locale/bitcoin_sq.ts \
+  qt/locale/bitcoin_sr@latin.ts \
+  qt/locale/bitcoin_sr.ts \
+  qt/locale/bitcoin_sv.ts \
+  qt/locale/bitcoin_ta.ts \
+  qt/locale/bitcoin_th_TH.ts \
+  qt/locale/bitcoin_tr_TR.ts \
+  qt/locale/bitcoin_tr.ts \
+  qt/locale/bitcoin_uk.ts \
+  qt/locale/bitcoin_ur_PK.ts \
+  qt/locale/bitcoin_uz@Cyrl.ts \
+  qt/locale/bitcoin_vi.ts \
+  qt/locale/bitcoin_vi_VN.ts \
+  qt/locale/bitcoin_zh_CN.ts \
+  qt/locale/bitcoin_zh_HK.ts \
+  qt/locale/bitcoin_zh.ts \
+  qt/locale/bitcoin_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -82,12 +101,13 @@ QT_FORMS_UI = \
   qt/forms/editaddressdialog.ui \
   qt/forms/helpmessagedialog.ui \
   qt/forms/intro.ui \
+  qt/forms/modaloverlay.ui \
   qt/forms/openuridialog.ui \
   qt/forms/optionsdialog.ui \
   qt/forms/overviewpage.ui \
   qt/forms/receivecoinsdialog.ui \
   qt/forms/receiverequestdialog.ui \
-  qt/forms/rpcconsole.ui \
+  qt/forms/debugwindow.ui \
   qt/forms/sendcoinsdialog.ui \
   qt/forms/sendcoinsentry.ui \
   qt/forms/signverifymessagedialog.ui \
@@ -97,10 +117,12 @@ QT_MOC_CPP = \
   qt/moc_addressbookpage.cpp \
   qt/moc_addresstablemodel.cpp \
   qt/moc_askpassphrasedialog.cpp \
-  qt/moc_polcoinaddressvalidator.cpp \
-  qt/moc_polcoinamountfield.cpp \
-  qt/moc_polcoingui.cpp \
-  qt/moc_polcoinunits.cpp \
+  qt/moc_bantablemodel.cpp \
+  qt/moc_bitcoinaddressvalidator.cpp \
+  qt/moc_bitcoinamountfield.cpp \
+  qt/moc_bitcoin.cpp \
+  qt/moc_bitcoingui.cpp \
+  qt/moc_bitcoinunits.cpp \
   qt/moc_clientmodel.cpp \
   qt/moc_coincontroldialog.cpp \
   qt/moc_coincontroltreewidget.cpp \
@@ -110,6 +132,7 @@ QT_MOC_CPP = \
   qt/moc_intro.cpp \
   qt/moc_macdockiconhandler.cpp \
   qt/moc_macnotificationhandler.cpp \
+  qt/moc_modaloverlay.cpp \
   qt/moc_notificator.cpp \
   qt/moc_openuridialog.cpp \
   qt/moc_optionsdialog.cpp \
@@ -134,38 +157,47 @@ QT_MOC_CPP = \
   qt/moc_transactiontablemodel.cpp \
   qt/moc_transactionview.cpp \
   qt/moc_utilitydialog.cpp \
+  qt/moc_walletcontroller.cpp \
   qt/moc_walletframe.cpp \
   qt/moc_walletmodel.cpp \
   qt/moc_walletview.cpp
 
-POLCOIN_MM = \
+BITCOIN_MM = \
   qt/macdockiconhandler.mm \
-  qt/macnotificationhandler.mm
+  qt/macnotificationhandler.mm \
+  qt/macos_appnap.mm
 
 QT_MOC = \
-  qt/polcoin.moc \
-  qt/polcoinamountfield.moc \
+  qt/bitcoinamountfield.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_polcoin.cpp
-QT_QRC = qt/polcoin.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_polcoin_locale.cpp
-QT_QRC_LOCALE = qt/polcoin_locale.qrc
+QT_QRC_CPP = qt/qrc_bitcoin.cpp
+QT_QRC = qt/bitcoin.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_bitcoin_locale.cpp
+QT_QRC_LOCALE = qt/bitcoin_locale.qrc
 
+if ENABLE_BIP70
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
 PROTOBUF_PROTO = qt/paymentrequest.proto
+else
+PROTOBUF_CC =
+PROTOBUF_H =
+PROTOBUF_PROTO =
+endif
 
-POLCOIN_QT_H = \
+BITCOIN_QT_H = \
   qt/addressbookpage.h \
   qt/addresstablemodel.h \
   qt/askpassphrasedialog.h \
-  qt/polcoinaddressvalidator.h \
-  qt/polcoinamountfield.h \
-  qt/polcoingui.h \
-  qt/polcoinunits.h \
+  qt/bantablemodel.h \
+  qt/bitcoinaddressvalidator.h \
+  qt/bitcoinamountfield.h \
+  qt/bitcoin.h \
+  qt/bitcoingui.h \
+  qt/bitcoinunits.h \
   qt/clientmodel.h \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
@@ -176,6 +208,8 @@ POLCOIN_QT_H = \
   qt/intro.h \
   qt/macdockiconhandler.h \
   qt/macnotificationhandler.h \
+  qt/macos_appnap.h \
+  qt/modaloverlay.h \
   qt/networkstyle.h \
   qt/notificator.h \
   qt/openuridialog.h \
@@ -185,6 +219,7 @@ POLCOIN_QT_H = \
   qt/paymentrequestplus.h \
   qt/paymentserver.h \
   qt/peertablemodel.h \
+  qt/platformstyle.h \
   qt/qvalidatedlineedit.h \
   qt/qvaluecombobox.h \
   qt/receivecoinsdialog.h \
@@ -203,6 +238,7 @@ POLCOIN_QT_H = \
   qt/transactiontablemodel.h \
   qt/transactionview.h \
   qt/utilitydialog.h \
+  qt/walletcontroller.h \
   qt/walletframe.h \
   qt/walletmodel.h \
   qt/walletmodeltransaction.h \
@@ -212,21 +248,23 @@ POLCOIN_QT_H = \
 RES_ICONS = \
   qt/res/icons/add.png \
   qt/res/icons/address-book.png \
-  qt/res/icons/polcoin.ico \
-  qt/res/icons/polcoin.png \
-  qt/res/icons/polcoin_testnet.ico \
-  qt/res/icons/polcoin_testnet.png \
+  qt/res/icons/about.png \
+  qt/res/icons/about_qt.png \
+  qt/res/icons/bitcoin.ico \
+  qt/res/icons/bitcoin_testnet.ico \
+  qt/res/icons/bitcoin.png \
+  qt/res/icons/chevron.png \
   qt/res/icons/clock1.png \
   qt/res/icons/clock2.png \
   qt/res/icons/clock3.png \
   qt/res/icons/clock4.png \
   qt/res/icons/clock5.png \
   qt/res/icons/configure.png \
-  qt/res/icons/connect0_16.png \
-  qt/res/icons/connect1_16.png \
-  qt/res/icons/connect2_16.png \
-  qt/res/icons/connect3_16.png \
-  qt/res/icons/connect4_16.png \
+  qt/res/icons/connect0.png \
+  qt/res/icons/connect1.png \
+  qt/res/icons/connect2.png \
+  qt/res/icons/connect3.png \
+  qt/res/icons/connect4.png \
   qt/res/icons/debugwindow.png \
   qt/res/icons/edit.png \
   qt/res/icons/editcopy.png \
@@ -236,12 +274,19 @@ RES_ICONS = \
   qt/res/icons/eye_minus.png \
   qt/res/icons/eye_plus.png \
   qt/res/icons/filesave.png \
+  qt/res/icons/fontbigger.png \
+  qt/res/icons/fontsmaller.png \
+  qt/res/icons/hd_disabled.png \
+  qt/res/icons/hd_enabled.png \
   qt/res/icons/history.png \
+  qt/res/icons/info.png \
   qt/res/icons/key.png \
   qt/res/icons/lock_closed.png \
   qt/res/icons/lock_open.png \
+  qt/res/icons/network_disabled.png \
+  qt/res/icons/open.png \
   qt/res/icons/overview.png \
-  qt/res/icons/qrcode.png \
+  qt/res/icons/proxy.png \
   qt/res/icons/quit.png \
   qt/res/icons/receive.png \
   qt/res/icons/remove.png \
@@ -249,39 +294,43 @@ RES_ICONS = \
   qt/res/icons/synced.png \
   qt/res/icons/transaction0.png \
   qt/res/icons/transaction2.png \
+  qt/res/icons/transaction_abandoned.png \
   qt/res/icons/transaction_conflicted.png \
   qt/res/icons/tx_inout.png \
   qt/res/icons/tx_input.png \
   qt/res/icons/tx_output.png \
   qt/res/icons/tx_mined.png \
-  qt/res/icons/unit_plc.png \
-  qt/res/icons/unit_mplc.png \
-  qt/res/icons/unit_uplc.png
+  qt/res/icons/warning.png \
+  qt/res/icons/verify.png
 
-POLCOIN_QT_CPP = \
-  qt/polcoinaddressvalidator.cpp \
-  qt/polcoinamountfield.cpp \
-  qt/polcoingui.cpp \
-  qt/polcoinunits.cpp \
+BITCOIN_QT_BASE_CPP = \
+  qt/bantablemodel.cpp \
+  qt/bitcoin.cpp \
+  qt/bitcoinaddressvalidator.cpp \
+  qt/bitcoinamountfield.cpp \
+  qt/bitcoingui.cpp \
+  qt/bitcoinunits.cpp \
   qt/clientmodel.cpp \
   qt/csvmodelwriter.cpp \
   qt/guiutil.cpp \
   qt/intro.cpp \
+  qt/modaloverlay.cpp \
   qt/networkstyle.cpp \
   qt/notificator.cpp \
   qt/optionsdialog.cpp \
   qt/optionsmodel.cpp \
   qt/peertablemodel.cpp \
+  qt/platformstyle.cpp \
   qt/qvalidatedlineedit.cpp \
   qt/qvaluecombobox.cpp \
   qt/rpcconsole.cpp \
   qt/splashscreen.cpp \
   qt/trafficgraphwidget.cpp \
-  qt/utilitydialog.cpp \
-  qt/winshutdownmonitor.cpp
+  qt/utilitydialog.cpp
 
-if ENABLE_WALLET
-POLCOIN_QT_CPP += \
+BITCOIN_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp
+
+BITCOIN_QT_WALLET_CPP = \
   qt/addressbookpage.cpp \
   qt/addresstablemodel.cpp \
   qt/askpassphrasedialog.cpp \
@@ -290,7 +339,6 @@ POLCOIN_QT_CPP += \
   qt/editaddressdialog.cpp \
   qt/openuridialog.cpp \
   qt/overviewpage.cpp \
-  qt/paymentrequestplus.cpp \
   qt/paymentserver.cpp \
   qt/receivecoinsdialog.cpp \
   qt/receiverequestdialog.cpp \
@@ -304,29 +352,44 @@ POLCOIN_QT_CPP += \
   qt/transactionrecord.cpp \
   qt/transactiontablemodel.cpp \
   qt/transactionview.cpp \
+  qt/walletcontroller.cpp \
   qt/walletframe.cpp \
   qt/walletmodel.cpp \
   qt/walletmodeltransaction.cpp \
   qt/walletview.cpp
+
+BITCOIN_QT_WALLET_BIP70_CPP = \
+  qt/paymentrequestplus.cpp
+
+BITCOIN_QT_CPP = $(BITCOIN_QT_BASE_CPP)
+if TARGET_WINDOWS
+BITCOIN_QT_CPP += $(BITCOIN_QT_WINDOWS_CPP)
 endif
+if ENABLE_WALLET
+BITCOIN_QT_CPP += $(BITCOIN_QT_WALLET_CPP)
+if ENABLE_BIP70
+BITCOIN_QT_CPP += $(BITCOIN_QT_WALLET_BIP70_CPP)
+endif # ENABLE_BIP70
+endif # ENABLE_WALLET
 
-RES_IMAGES = \
-  qt/res/images/about.png \
-  qt/res/images/splash.png \
-  qt/res/images/splash_testnet.png
+RES_IMAGES =
 
-RES_MOVIES = $(wildcard qt/res/movies/spinner-*.png)
+RES_MOVIES = $(wildcard $(srcdir)/qt/res/movies/spinner-*.png)
 
-POLCOIN_RC = qt/res/polcoin-qt-res.rc
+BITCOIN_RC = qt/res/bitcoin-qt-res.rc
 
-POLCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
-  -I$(builddir)/qt/forms
+BITCOIN_QT_INCLUDES = -DQT_NO_KEYWORDS
 
-qt_libpolcoinqt_a_CPPFLAGS = $(POLCOIN_INCLUDES) $(POLCOIN_QT_INCLUDES) \
+qt_libpolcoinqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
+qt_libpolcoinqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_libpolcoinqt_a_OBJCXXFLAGS = $(AM_OBJCXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_libpolcoinqt_a_SOURCES = $(POLCOIN_QT_CPP) $(POLCOIN_QT_H) $(QT_FORMS_UI) \
+qt_libpolcoinqt_a_SOURCES = $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES)
+if TARGET_DARWIN
+  qt_libpolcoinqt_a_SOURCES += $(BITCOIN_MM)
+endif
 
 nodist_qt_libpolcoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
   $(PROTOBUF_H) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)
@@ -344,56 +407,67 @@ $(qt_libpolcoinqt_a_OBJECTS) $(qt_polcoin_qt_OBJECTS) : | $(QT_MOC)
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# polcoin-qt binary #
-qt_polcoin_qt_CPPFLAGS = $(POLCOIN_INCLUDES) $(POLCOIN_QT_INCLUDES) \
+# bitcoin-qt binary #
+qt_polcoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
+qt_polcoin_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_polcoin_qt_SOURCES = qt/polcoin.cpp
-if TARGET_DARWIN
-  qt_polcoin_qt_SOURCES += $(POLCOIN_MM)
-endif
+qt_polcoin_qt_SOURCES = qt/main.cpp
 if TARGET_WINDOWS
-  qt_polcoin_qt_SOURCES += $(POLCOIN_RC)
+  qt_polcoin_qt_SOURCES += $(BITCOIN_RC)
 endif
-qt_polcoin_qt_LDADD = qt/libpolcoinqt.a $(LIBPOLCOIN_SERVER)
+qt_polcoin_qt_LDADD = qt/libpolcoinqt.a $(LIBBITCOIN_SERVER)
 if ENABLE_WALLET
-qt_polcoin_qt_LDADD += $(LIBPOLCOIN_WALLET)
+qt_polcoin_qt_LDADD += $(LIBBITCOIN_UTIL) $(LIBBITCOIN_WALLET)
 endif
-qt_polcoin_qt_LDADD += $(LIBPOLCOIN_CLI) $(LIBPOLCOIN_COMMON) $(LIBPOLCOIN_UTIL) $(LIBPOLCOIN_CRYPTO) $(LIBPOLCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
-  $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1)
+if ENABLE_ZMQ
+qt_polcoin_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+endif
+qt_polcoin_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CONSENSUS) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
+  $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
+  $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+if ENABLE_BIP70
+qt_polcoin_qt_LDADD += $(SSL_LIBS)
+else
+if TARGET_WINDOWS
+qt_polcoin_qt_LDADD += $(SSL_LIBS)
+endif
+endif
+qt_polcoin_qt_LDADD += $(CRYPTO_LIBS)
 qt_polcoin_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-qt_polcoin_qt_LIBTOOLFLAGS = --tag CXX
+qt_polcoin_qt_LIBTOOLFLAGS = $(AM_LIBTOOLFLAGS) --tag CXX
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
-.SECONDARY: $(QT_QM)
+SECONDARY: $(QT_QM)
 
-qt/polcoinstrings.cpp: $(libpolcoin_server_a_SOURCES) $(libpolcoin_wallet_a_SOURCES)
+$(srcdir)/qt/bitcoinstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES) $(libbitcoin_zmq_a_SOURCES) $(libbitcoin_consensus_a_SOURCES) $(libbitcoin_util_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
-	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) ../share/qt/extract_strings_qt.py $^
+	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) PACKAGE_NAME="$(PACKAGE_NAME)" COPYRIGHT_HOLDERS="$(COPYRIGHT_HOLDERS)" COPYRIGHT_HOLDERS_SUBSTITUTION="$(COPYRIGHT_HOLDERS_SUBSTITUTION)" $(PYTHON) ../share/qt/extract_strings_qt.py $^
 
-translate: qt/polcoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(POLCOIN_QT_CPP) $(POLCOIN_QT_H) $(POLCOIN_MM)
+translate: $(srcdir)/qt/bitcoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_BASE_CPP) qt/bitcoin.cpp $(BITCOIN_QT_WINDOWS_CPP) $(BITCOIN_QT_WALLET_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/polcoin_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/bitcoin_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
-	@test -f $(@D)/$(<F) || cp -f $< $(@D)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name polcoin_locale $(@D)/$(<F) | \
+	@cp -f $< $(@D)/temp_$(<F)
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bitcoin_locale $(@D)/temp_$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+	@rm $(@D)/temp_$(<F)
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name polcoin $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bitcoin $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
-CLEAN_QT = $(nodist_qt_libpolcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
+CLEAN_QT = $(nodist_qt_libpolcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno qt/temp_bitcoin_locale.qrc
 
 CLEANFILES += $(CLEAN_QT)
 
 polcoin_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libpolcoinqt_a_OBJECTS) $(qt_polcoin_qt_OBJECTS) qt/polcoin-qt$(EXEEXT) $(LIBPOLCOINQT)
+	rm -f $(CLEAN_QT) $(qt_libpolcoinqt_a_OBJECTS) $(qt_polcoin_qt_OBJECTS) qt/polcoin-qt$(EXEEXT) $(LIBBITCOINQT)
 
 polcoin_qt : qt/polcoin-qt$(EXEEXT)
 
@@ -403,11 +477,11 @@ ui_%.h: %.ui
 	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(UIC) -o $@ $< || (echo "Error creating $@"; false)
 
 %.moc: %.cpp
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(MOC) $(QT_INCLUDES) $(MOC_DEFS) $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(MOC) $(DEFAULT_INCLUDES) $(QT_INCLUDES) $(MOC_DEFS) $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 moc_%.cpp: %.h
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(MOC) $(QT_INCLUDES) $(MOC_DEFS) $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(MOC) $(DEFAULT_INCLUDES) $(QT_INCLUDES) $(MOC_DEFS) $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 %.qm: %.ts

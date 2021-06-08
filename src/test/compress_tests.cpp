@@ -1,9 +1,10 @@
-// Copyright (c) 2012-2013 The Polcoin Core developers
-// Distributed under the MIT/X11 software license, see the accompanying
+// Copyright (c) 2012-2018 The Bitcoin Core developers
+// Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "compressor.h"
-#include "util.h"
+#include <compressor.h>
+#include <util/system.h>
+#include <test/test_bitcoin.h>
 
 #include <stdint.h>
 
@@ -16,24 +17,24 @@
 #define NUM_MULTIPLES_CENT 10000
 
 // amounts 1 .. 10000
-#define NUM_MULTIPLES_1PLC 10000
+#define NUM_MULTIPLES_1BTC 10000
 
 // amounts 50 .. 21000000
-#define NUM_MULTIPLES_50PLC 420000
+#define NUM_MULTIPLES_50BTC 420000
 
-BOOST_AUTO_TEST_SUITE(compress_tests)
+BOOST_FIXTURE_TEST_SUITE(compress_tests, BasicTestingSetup)
 
 bool static TestEncode(uint64_t in) {
-    return in == CTxOutCompressor::DecompressAmount(CTxOutCompressor::CompressAmount(in));
+    return in == DecompressAmount(CompressAmount(in));
 }
 
 bool static TestDecode(uint64_t in) {
-    return in == CTxOutCompressor::CompressAmount(CTxOutCompressor::DecompressAmount(in));
+    return in == CompressAmount(DecompressAmount(in));
 }
 
 bool static TestPair(uint64_t dec, uint64_t enc) {
-    return CTxOutCompressor::CompressAmount(dec) == enc &&
-           CTxOutCompressor::DecompressAmount(enc) == dec;
+    return CompressAmount(dec) == enc &&
+           DecompressAmount(enc) == dec;
 }
 
 BOOST_AUTO_TEST_CASE(compress_amounts)
@@ -51,10 +52,10 @@ BOOST_AUTO_TEST_CASE(compress_amounts)
     for (uint64_t i = 1; i <= NUM_MULTIPLES_CENT; i++)
         BOOST_CHECK(TestEncode(i * CENT));
 
-    for (uint64_t i = 1; i <= NUM_MULTIPLES_1PLC; i++)
+    for (uint64_t i = 1; i <= NUM_MULTIPLES_1BTC; i++)
         BOOST_CHECK(TestEncode(i * COIN));
 
-    for (uint64_t i = 1; i <= NUM_MULTIPLES_50PLC; i++)
+    for (uint64_t i = 1; i <= NUM_MULTIPLES_50BTC; i++)
         BOOST_CHECK(TestEncode(i * 50 * COIN));
 
     for (uint64_t i = 0; i < 100000; i++)

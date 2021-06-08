@@ -1,35 +1,18 @@
-// Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2014-2016 The Polcoin developers
+// Copyright (c) 2009-2018 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef POLCOIN_CLIENTVERSION_H
-#define POLCOIN_CLIENTVERSION_H
+#ifndef BITCOIN_CLIENTVERSION_H
+#define BITCOIN_CLIENTVERSION_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/polcoin-config.h"
-#else
-
-/**
- * client versioning and copyright year
- */
-
-//! These need to be macros, as clientversion.cpp's and polcoin*-res.rc's voodoo requires it
-#define CLIENT_VERSION_MAJOR 1
-#define CLIENT_VERSION_MINOR 6
-#define CLIENT_VERSION_REVISION 2
-#define CLIENT_VERSION_BUILD 1
-
-//! Set to true for release, false for prerelease or test build
-#define CLIENT_VERSION_IS_RELEASE true
-
-/**
- * Copyright year (2009-this)
- * Todo: update this when changing our copyright comments in the source
- */
-#define COPYRIGHT_YEAR 2018
-
+#include <config/bitcoin-config.h>
 #endif //HAVE_CONFIG_H
+
+// Check that required client information is defined
+#if !defined(CLIENT_VERSION_MAJOR) || !defined(CLIENT_VERSION_MINOR) || !defined(CLIENT_VERSION_REVISION) || !defined(CLIENT_VERSION_BUILD) || !defined(CLIENT_VERSION_IS_RELEASE) || !defined(COPYRIGHT_YEAR)
+#error Client version information missing: version is not defined by bitcoin-config.h or in any other way
+#endif
 
 /**
  * Converts the parameter X to a string after macro replacement on X has been performed.
@@ -39,10 +22,10 @@
 #define DO_STRINGIZE(X) #X
 
 //! Copyright string used in Windows .rc files
-#define COPYRIGHT_STR "2014-" STRINGIZE(COPYRIGHT_YEAR) " The Polcoin Core Developers"
+#define COPYRIGHT_STR "2014-" STRINGIZE(COPYRIGHT_YEAR) " " COPYRIGHT_HOLDERS_FINAL
 
 /**
- * polcoind-res.rc includes this file, but it cannot cope with real c++ code.
+ * bitcoind-res.rc includes this file, but it cannot cope with real c++ code.
  * WINDRES_PREPROC is defined to indicate that its pre-processor is running.
  * Anything other than a define should be guarded below.
  */
@@ -59,9 +42,7 @@ static const int CLIENT_VERSION =
                          +       1 * CLIENT_VERSION_BUILD;
 
 extern const std::string CLIENT_NAME;
-extern const std::string CLIENT_VERSION_SUFFIX;
 extern const std::string CLIENT_BUILD;
-extern const std::string CLIENT_DATE;
 
 
 std::string FormatFullVersion();
@@ -69,4 +50,4 @@ std::string FormatSubVersion(const std::string& name, int nClientVersion, const 
 
 #endif // WINDRES_PREPROC
 
-#endif // POLCOIN_CLIENTVERSION_H
+#endif // BITCOIN_CLIENTVERSION_H
